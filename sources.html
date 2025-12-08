@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sources and Bibliography</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #222;
+      --card-bg: #ffffff;
+      --accent: #c62828;
+      --nav-bg: #222222;
+      --nav-link-bg: #444444;
+      --nav-link-hover: #666666;
+    }
+    [data-theme="dark"] {
+      --bg-color: #050509;
+      --text-color: #f1f1f1;
+      --card-bg: #15151b;
+      --accent: #e53935;
+      --nav-bg: #101018;
+      --nav-link-bg: #262636;
+      --nav-link-hover: #3b3b57;
+    }
+    body { margin: 0; font-family: 'Inter', Arial, sans-serif; background: var(--bg-color); color: var(--text-color); transition: background 0.4s ease, color 0.4s ease; }
+    nav { background: var(--nav-bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+    nav a, nav button { color: #fff; text-decoration: none; padding: 8px 14px; background: var(--nav-link-bg); border-radius: 999px; border: none; cursor: pointer; font-size: 0.9rem; }
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); }
+    .container { max-width: 900px; margin: 30px auto; background: var(--card-bg); padding: 32px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html">← Back to Home</a>
+  <button id="theme-toggle-s" type="button">🌙 Dark mode</button>
+</nav>
+<div class="container">
+  <h2>Source Analysis</h2>
+
+  <h3>Primary Sources</h3>
+  <p><strong>Reichstag Speech (1939).</strong> This speech by Adolf Hitler, delivered before the German parliament on January 30, 1939, publicly threatened the Jewish population of Europe. The United States Holocaust Memorial Museum’s documentation of the speech shows how it circulated through radio broadcasts and print media. It is relevant to this project because it illustrates the connection between spoken threats and the visual propaganda that prepared Germans to accept increasingly violent policies (United States Holocaust Memorial Museum, “Reichstag Speech”).</p>
+
+  <p><strong>Medical and Racial Propaganda Posters.</strong> The posters <em>“Das furchtbare Erbe einer Trunkenen”</em> and <em>“Sterilisation ist Befreiung, nicht Strafe”</em> are primary visual sources reproduced in the USHMM exhibition <em>State of Deception: The Power of Nazi Propaganda</em>. They show how pseudoscientific arguments about heredity were communicated to the public using emotional images and simplified stories (“Medical and Racial Propaganda”). These posters directly shaped how ordinary people understood disability, illness, and responsibility to the “national community.”</p>
+
+  <p><strong>Front Page of Der Stürmer.</strong> The antisemitic newspaper <em>Der Stürmer</em> used shocking headlines and disturbing illustrations to spread myths about Jews. The USHMM’s image of the most popular issue demonstrates how sensationalism and repetition helped normalize hatred. This newspaper connects to the posters in this project by showing that hostile ideas about “outsiders” appeared across multiple media forms at the same time.</p>
+
+  <h3>Secondary Source</h3>
+  <p><strong>PBS Biography of Joseph Goebbels.</strong> The PBS <em>American Experience</em> biography of Goebbels provides crucial context about his role as Minister for Public Enlightenment and Propaganda. It explains how he centralized control of information, experimented with different media formats, and tailored messages to specific audiences. This background helps interpret the posters not as isolated artworks, but as parts of a coordinated propaganda system aimed at transforming German society.</p>
+
+  <h2>Chicago Style Bibliography</h2>
+  <p>United States Holocaust Memorial Museum. “Reichstag Speech.” <em>Holocaust Encyclopedia</em>. Accessed October 11, 2025.</p>
+  <p>United States Holocaust Memorial Museum. “Medical and Racial Propaganda.” <em>State of Deception: The Power of Nazi Propaganda</em>. Accessed October 11, 2025.</p>
+  <p>United States Holocaust Memorial Museum. “Front Page of the Most Popular Issue Ever of <em>Der Stürmer</em>.” <em>Holocaust Encyclopedia</em>. Accessed October 11, 2025.</p>
+  <p>PBS. “Joseph Goebbels (1897–1945).” <em>American Experience</em>. Accessed October 11, 2025.</p>
+</div>
+
+<script>
+  const rootS = document.documentElement;
+  const toggleS = document.getElementById('theme-toggle-s');
+  const savedS = localStorage.getItem('theme');
+  if (savedS) {
+    rootS.setAttribute('data-theme', savedS);
+    if (savedS === 'dark' && toggleS) toggleS.textContent = '☀️ Light mode';
+  }
+  if (toggleS) {
+    toggleS.addEventListener('click', () => {
+      const now = rootS.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      rootS.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+      toggleS.textContent = now === 'dark' ? '☀️ Light mode' : '🌙 Dark mode';
+    });
+  }
+</script>
+</body>
+</html>

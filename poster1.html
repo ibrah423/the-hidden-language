@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poster 1 – Ein Volk, ein Reich, ein Führer!</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #222;
+      --card-bg: #ffffff;
+      --accent: #c62828;
+      --header-bg: #111111;
+      --nav-bg: #222222;
+      --nav-link-bg: #444444;
+      --nav-link-hover: #666666;
+    }
+    [data-theme="dark"] {
+      --bg-color: #050509;
+      --text-color: #f1f1f1;
+      --card-bg: #15151b;
+      --accent: #e53935;
+      --header-bg: #000000;
+      --nav-bg: #101018;
+      --nav-link-bg: #262636;
+      --nav-link-hover: #3b3b57;
+    }
+    body { margin: 0; font-family: 'Inter', Arial, sans-serif; background: var(--bg-color); color: var(--text-color); transition: background 0.4s ease, color 0.4s ease; }
+    nav { background: var(--nav-bg); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+    nav a, nav button { color: #fff; text-decoration: none; padding: 8px 14px; background: var(--nav-link-bg); border-radius: 999px; border: none; cursor: pointer; font-size: 0.9rem; }
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); }
+    .container { max-width: 900px; margin: 30px auto; background: var(--card-bg); padding: 32px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .poster-img { max-width: 100%; border-radius: 12px; cursor: pointer; display: block; margin: 16px 0 24px; transition: transform 0.3s ease; }
+    .poster-img:hover { transform: scale(1.02); }
+    h2 { margin-top: 0; }
+    .section-title { margin-top: 22px; border-bottom: 2px solid rgba(0,0,0,0.08); padding-bottom: 6px; }
+    #lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 999; }
+    #lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html">← Back to Home</a>
+  <button id="theme-toggle-p1" type="button">🌙 Dark mode</button>
+</nav>
+<div class="container">
+  <h2>“Ein Volk, ein Reich, ein Führer!”</h2>
+  <p>This political propaganda poster, whose slogan translates as <strong>“One People, One Empire, One Leader,”</strong> became widely visible in 1938 and 1939 as Nazi Germany expanded its control over neighboring territories. Although no single artist is credited, the design and slogan came from campaigns organized by the Reich Ministry of Public Enlightenment and Propaganda. The poster invited viewers to imagine all ethnic Germans united in a single state, led personally by Adolf Hitler.</p>
+
+  <img src="poster1.jpg" alt="Poster with the slogan 'Ein Volk, ein Reich, ein Führer' used in Nazi propaganda" class="poster-img" id="poster1-img" />
+
+  <h3 class="section-title">Creation and Distribution</h3>
+  <p>The slogan appeared on posters, banners, and newspaper headlines during the <em>Anschluss</em> (annexation of Austria) and later during the occupation of other territories. Copies were hung in schools, government buildings, and along parade routes for mass rallies. Because the posters were printed and distributed by state agencies, they could be reproduced on a large scale and placed in highly visible locations. Today, surviving originals are preserved in archives such as the United States Holocaust Memorial Museum, which has collected and digitized examples from confiscated Nazi records.</p>
+
+  <h3 class="section-title">Meaning and Visual Message</h3>
+  <p>At first glance, the poster seems simple: it presents a short slogan and often an image of Hitler or a mass of cheering citizens. However, its simplicity is part of its power. By repeating the phrase “one people, one empire, one leader,” the poster teaches viewers that unity, national identity, and loyalty to Hitler are inseparable. There is no space for political disagreement or for minority identities. Anyone who does not fit into the ideal of the “people” becomes, by implication, an outsider or even an enemy.</p>
+  <p>The message echoed statements in Hitler’s <strong>Reichstag speech of January 30, 1939</strong>, where he spoke confidently about Germany’s destiny and threatened the annihilation of the Jewish population of Europe. That speech, widely reported and broadcast, gave political content to the kind of emotional loyalty that posters like this encouraged (United States Holocaust Memorial Museum, “Reichstag Speech”). Together, verbal and visual propaganda helped create the impression that Hitler’s leadership was both inevitable and enthusiastically supported.</p>
+
+  <h3 class="section-title">Historical Significance</h3>
+  <p>This poster is significant because it shows how propaganda framed dictatorship as unity. Instead of presenting authoritarian rule as something harsh or repressive, it portrayed obedience as the natural expression of belonging to the German nation. By the time more openly violent measures were taken against Jews and other groups, many Germans had already absorbed the idea that the “people” and the “leader” were one and the same. Questioning Hitler thus appeared to be an attack on the community itself.</p>
+
+  <h3 class="section-title">Cited</h3>
+  <p>United States Holocaust Memorial Museum, “Reichstag Speech,” <em>Holocaust Encyclopedia</em>.</p>
+  <p>PBS, “Joseph Goebbels (1897–1945),” <em>American Experience</em>.</p>
+</div>
+
+<div id="lightbox">
+  <img src="poster1.jpg" alt="Enlarged view of the 'Ein Volk, ein Reich, ein Führer' poster" />
+</div>
+
+<script>
+  const root1 = document.documentElement;
+  const toggle1 = document.getElementById('theme-toggle-p1');
+  const saved1 = localStorage.getItem('theme');
+  if (saved1) {
+    root1.setAttribute('data-theme', saved1);
+    if (saved1 === 'dark' && toggle1) toggle1.textContent = '☀️ Light mode';
+  }
+  if (toggle1) {
+    toggle1.addEventListener('click', () => {
+      const now = root1.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root1.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+      toggle1.textContent = now === 'dark' ? '☀️ Light mode' : '🌙 Dark mode';
+    });
+  }
+
+  const img1 = document.getElementById('poster1-img');
+  const lightbox1 = document.getElementById('lightbox');
+  if (img1 && lightbox1) {
+    img1.addEventListener('click', () => {
+      lightbox1.style.display = 'flex';
+    });
+    lightbox1.addEventListener('click', () => {
+      lightbox1.style.display = 'none';
+    });
+  }
+</script>
+</body>
+</html>
