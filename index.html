@@ -6,86 +6,64 @@
   <title>The Hidden Language of Nazi Propaganda</title>
 
   <style>
-    /* ====== THEME COLORS ====== */
+    /* ====== GLOBAL THEME COLORS ====== */
     :root {
-      --bg-color: #f4f4f4;
+      --bg-color: rgba(255,255,255,0.85);
       --text-color: #222;
-      --card-bg: #ffffff;
-      --accent: #781414;
-      --header-bg: #202020;
-      --nav-bg: #303030;
-      --nav-link-bg: #424242;
-      --nav-link-hover: #555;
+      --card-bg: rgba(255,255,255,0.85);
+      --accent: #7a0f0f;
+      --nav-bg: rgba(0,0,0,0.65);
+      --nav-link-bg: rgba(80,80,80,0.7);
+      --nav-link-hover: rgba(120,120,120,0.8);
     }
 
     [data-theme="dark"] {
-      --bg-color: #0c0c12;
+      --bg-color: rgba(10,10,15,0.8);
       --text-color: #e8e8e8;
-      --card-bg: #1a1a22;
-      --accent: #b23434;
-      --header-bg: #000000;
-      --nav-bg: #12121a;
-      --nav-link-bg: #2c2c3d;
-      --nav-link-hover: #3f3f56;
+      --card-bg: rgba(20,20,30,0.75);
+      --accent: #c94141;
+      --nav-bg: rgba(0,0,0,0.75);
+      --nav-link-bg: rgba(50,50,70,0.7);
+      --nav-link-hover: rgba(80,80,110,0.8);
     }
 
-    /* ====== GLOBAL STYLES ====== */
+    /* ====== BACKGROUND IMAGE ====== */
     body {
-      font-family: "Times New Roman", serif;
       margin: 0;
-      background: var(--bg-color);
+      font-family: "Times New Roman", serif;
+      background-image: url("German.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: var(--text-color);
-      font-size: 18px;
-      line-height: 1.7;
-      transition: background .3s ease, color .3s ease;
+      font-size: 19px;
+      line-height: 1.8;
     }
 
-    * { box-sizing: border-box; }
-
-    /* ====== HEADER ====== */
-    header {
-      background: linear-gradient(135deg, var(--header-bg), #3d3d3d);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    }
-
-    header h1 {
-      margin: 10px 0 5px;
-      letter-spacing: 0.03em;
-      font-size: 2rem;
-    }
-    .tagline { color: #cccccc; font-size: .85rem; letter-spacing: .15em; }
-
-    /* ====== NAVIGATION ====== */
+    /* ====== NAV BAR ====== */
     nav {
       background: var(--nav-bg);
-      padding: 12px;
+      padding: 14px;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
+      gap: 16px;
       position: sticky;
-      top: 120px;
+      top: 0;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     nav a, nav button {
+      color: #fff;
       background: var(--nav-link-bg);
-      color: white;
-      text-decoration: none;
       padding: 8px 16px;
+      text-decoration: none;
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 17px;
       transition: background .2s ease, transform .2s ease;
-      font-family: "Times New Roman", serif;
     }
 
     nav a:hover, nav button:hover {
@@ -93,90 +71,52 @@
       transform: translateY(-1px);
     }
 
-    /* ====== MAIN CARD ====== */
+    /* ====== MAIN CONTENT WRAPPER ====== */
     .container {
       max-width: 1100px;
       margin: 40px auto;
       background: var(--card-bg);
-      padding: 40px 45px;
+      padding: 42px;
       border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.15);
-      animation: fadeInUp .7s ease both;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.1rem;
+      margin-bottom: 12px;
     }
 
     h2 {
-      font-size: 1.65rem;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-      padding-bottom: 6px;
-      margin-bottom: 22px;
+      margin-top: 32px;
+      font-size: 1.6rem;
+      border-bottom: 2px solid rgba(0,0,0,0.15);
+      padding-bottom: 8px;
     }
 
-    .lead {
-      font-size: 1.1rem;
-      margin-bottom: 18px;
+    .intro {
+      font-size: 1.15rem;
+      line-height: 1.8;
     }
 
-    /* ====== GRID LAYOUT ====== */
     .grid-two {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 30px;
-    }
-
-    @media (max-width: 850px) {
-      .grid-two { grid-template-columns: 1fr; }
-      nav, header { position: static; }
-    }
-
-    /* ====== TIMELINE ====== */
-    .timeline {
-      border-left: 4px solid var(--accent);
-      padding-left: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
       margin-top: 20px;
     }
-    .timeline p { margin: 8px 0; }
 
-    /* ====== FEATURED POSTERS ====== */
-    .poster-gallery {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .poster-gallery img {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .poster-gallery img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.30);
-    }
-
-    footer {
-      background: var(--header-bg);
-      padding: 22px;
-      text-align: center;
-      color: white;
-      margin-top: 50px;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+    @media(max-width: 800px) {
+      .grid-two { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="tagline">Historical Analysis Project</div>
-  <h1>The Hidden Language of Nazi Propaganda</h1>
-  <p>How Media, Messaging, and Imagery Shaped Public Opinion in Nazi Germany</p>
-</header>
 
 <nav>
   <a href="index.html">Home</a>
@@ -188,78 +128,64 @@
 </nav>
 
 <div class="container">
+  <h1>The Hidden Language of Nazi Propaganda</h1>
+  <p class="intro">
+    This project explores how the Nazi regime used posters and visual media to shape public opinion,
+    legitimize discrimination, and promote racial ideology. Propaganda was not random—it strategically blended
+    emotion, pseudoscience, nationalism, and repetition. By studying three posters, we can understand how visual
+    messaging persuaded ordinary Germans to accept, support, or ignore escalating violence.
+  </p>
+
+  <h2>The Reich Ministry of Public Enlightenment and Propaganda</h2>
+  <p>
+    Led by Joseph Goebbels, this ministry controlled newspapers, radio, art, film, literature, education, and
+    public messaging. Its goals included:
+  </p>
+
+  <ul>
+    <li>Shaping how Germans understood race, health, and national identity</li>
+    <li>Promoting the idea of a unified “Aryan” community</li>
+    <li>Suppressing opposing viewpoints</li>
+    <li>Normalizing antisemitism, eugenics, and loyalty to Hitler</li>
+  </ul>
 
   <div class="grid-two">
     <div>
-      <h2>Introduction</h2>
-      <p class="lead">
-        This project examines how Nazi Germany used mass media to promote its ideology 
-        of racial superiority and to make extremist policies appear normal, scientific, 
-        and necessary. Posters, newspapers, radio broadcasts, and speeches shaped what 
-        people believed about race, community, and loyalty.
-      </p>
-
       <p>
-        Led by Joseph Goebbels, the <strong>Reich Ministry of Public Enlightenment and Propaganda</strong> controlled nearly every form of communication in Germany. 
-        By eliminating alternative viewpoints and saturating public life with Nazi messaging, 
-        the regime created an environment where extremist ideology appeared to be common sense.
-      </p>
-
-      <p>
-        This website analyzes three propaganda posters—<em>“Ein Volk, ein Reich, ein Führer!”</em>, 
-        <em>“Das furchtbare Erbe einer Trunkenen”</em>, and 
-        <em>“Sterilisation ist Befreiung, nicht Strafe”</em>—to show how imagery, pseudoscience, 
-        and nationalism worked together to legitimize discrimination and forced sterilization.
+        Through posters, newspapers, films, and speeches, the ministry saturated Germany with emotionally charged
+        ideas. Messages repeated across different media created the impression that Nazi ideology was common sense.
       </p>
     </div>
-
     <div>
-      <h2>The Role of the Ministry</h2>
       <p>
-        Through newspapers, radio, schoolbooks, films, and public posters, the Propaganda Ministry 
-        shaped expectations about who belonged in German society and who did not.
+        The posters studied here—<em>“Ein Volk, ein Reich, ein Führer!”</em>,
+        <em>“Das furchtbare Erbe einer Trunkenen”</em>, and
+        <em>“Sterilisation ist Befreiung, nicht Strafe”</em>—represent political unity, hereditary fear, and the
+        sanitizing of medical coercion.
       </p>
-
-      <div class="timeline">
-        <h3>Timeline of Propaganda Expansion</h3>
-        <p><strong>1933:</strong> Ministry founded; coordinated control over media.</p>
-        <p><strong>1935:</strong> Racial propaganda intensifies after Nuremberg Laws.</p>
-        <p><strong>1936–1939:</strong> Eugenics posters spread across public spaces.</p>
-        <p><strong>1939–1945:</strong> Propaganda helps justify war and genocide.</p>
-      </div>
     </div>
   </div>
-
-  <!-- ====== FEATURED POSTER IMAGES ====== -->
-  <div style="margin-top: 45px;">
-    <h2>Featured Propaganda Posters</h2>
-
-    <div class="poster-gallery">
-      <img src="einvolk.jpg" alt="Ein Volk, ein Reich, ein Führer poster">
-      <img src="trunkenen.jpg" alt="Das furchtbare Erbe einer Trunkenen poster">
-      <img src="sterilisation.jpg" alt="Sterilisation ist Befreiung, nicht Strafe poster">
-    </div>
-  </div>
-
 </div>
 
-<footer>&copy; 2025 Nazi Propaganda Project</footer>
-
 <script>
+  /* Dark mode toggle */
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
+  const savedTheme = localStorage.getItem("theme");
 
-  const saved = localStorage.getItem("theme");
-  if (saved) {
-    html.setAttribute("data-theme", saved);
-    toggle.textContent = saved === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+    toggle.textContent =
+      savedTheme === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   }
 
   toggle.addEventListener("click", () => {
-    const mode = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", mode);
-    localStorage.setItem("theme", mode);
-    toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+    const newTheme =
+      html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    toggle.textContent =
+      newTheme === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   });
 </script>
 
