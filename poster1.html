@@ -8,59 +8,60 @@
   <style>
     /* ====== THEME COLORS ====== */
     :root {
-      --bg-color: #f4f4f4;
+      --bg-color: rgba(255,255,255,0.82);
       --text-color: #222;
-      --card-bg: #ffffff;
-      --accent: #781414;
-      --header-bg: #202020;
-      --nav-bg: #303030;
-      --nav-link-bg: #424242;
-      --nav-link-hover: #555;
+      --card-bg: rgba(255,255,255,0.88);
+      --accent: #7a0f0f;
+      --nav-bg: rgba(0,0,0,0.65);
+      --nav-link-bg: rgba(80,80,80,0.7);
+      --nav-link-hover: rgba(120,120,120,0.8);
     }
 
     [data-theme="dark"] {
-      --bg-color: #0c0c12;
+      --bg-color: rgba(20,20,30,0.75);
       --text-color: #e8e8e8;
-      --card-bg: #1a1a22;
-      --accent: #b23434;
-      --header-bg: #000;
-      --nav-bg: #12121a;
-      --nav-link-bg: #2c2c3d;
-      --nav-link-hover: #3f3f56;
+      --card-bg: rgba(30,30,40,0.75);
+      --accent: #c94141;
+      --nav-bg: rgba(0,0,0,0.75);
+      --nav-link-bg: rgba(50,50,70,0.7);
+      --nav-link-hover: rgba(80,80,110,0.8);
     }
 
-    /* ====== GLOBAL ====== */
+    /* ====== BACKGROUND ====== */
     body {
       margin: 0;
       font-family: "Times New Roman", serif;
-      background: var(--bg-color);
+      background-image: url("German.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: var(--text-color);
-      font-size: 18px;
-      line-height: 1.7;
-      transition: background .3s ease, color .3s ease;
+      font-size: 19px;
+      line-height: 1.75;
     }
-    * { box-sizing: border-box; }
 
-    /* ====== NAV BAR ====== */
+    /* ====== NAVIGATION ====== */
     nav {
       background: var(--nav-bg);
-      padding: 12px 16px;
+      padding: 14px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      justify-content: center;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(4px);
     }
 
     nav a, nav button {
-      background: var(--nav-link-bg);
       color: #fff;
+      background: var(--nav-link-bg);
       padding: 8px 16px;
       text-decoration: none;
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      font-size: 16px;
-      font-family: "Times New Roman", serif;
+      font-size: 17px;
       transition: background .2s ease, transform .2s ease;
     }
 
@@ -71,34 +72,36 @@
 
     /* ====== MAIN CARD ====== */
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 40px auto;
       background: var(--card-bg);
       padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.15);
-      animation: fadeInUp .7s ease both;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
     }
 
     h2 {
-      font-size: 1.7rem;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-      padding-bottom: 6px;
-      margin-bottom: 22px;
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid rgba(0,0,0,0.15);
+      padding-bottom: 10px;
     }
 
-    h3.section-title {
-      font-size: 1.3rem;
-      margin-top: 32px;
-      border-bottom: 2px solid rgba(0,0,0,0.1);
-      padding-bottom: 6px;
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 28px;
     }
 
-    /* ====== POSTER IMAGE FORMATTING ====== */
+    @media(max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+
     .poster-img {
       width: 100%;
       border-radius: 14px;
-      margin: 22px 0 32px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.28);
       cursor: pointer;
       transition: transform .25s ease, box-shadow .25s ease;
@@ -106,7 +109,14 @@
 
     .poster-img:hover {
       transform: scale(1.03);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    }
+
+    .section-title {
+      margin-top: 32px;
+      font-size: 1.35rem;
+      border-bottom: 2px solid rgba(0,0,0,0.15);
+      padding-bottom: 6px;
     }
 
     /* ====== LIGHTBOX ====== */
@@ -119,101 +129,108 @@
       align-items: center;
       z-index: 999;
     }
+
     #lightbox img {
       max-width: 90%;
       max-height: 90%;
       border-radius: 12px;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 
+
 <body>
+
 <nav>
-  <a href="index.html">← Back to Home</a>
+  <a href="index.html">Home</a>
+  <a href="poster1.html">Poster 1</a>
+  <a href="poster2.html">Poster 2</a>
+  <a href="poster3.html">Poster 3</a>
+  <a href="sources.html">Sources</a>
   <button id="theme-toggle">🌙 Dark mode</button>
 </nav>
 
 <div class="container">
   <h2>“Ein Volk, ein Reich, ein Führer!”</h2>
 
-  <p>
-    This political propaganda poster, whose slogan translates to 
-    <strong>“One People, One Empire, One Leader,”</strong> became widely visible in 1938–1939 as Nazi Germany annexed Austria 
-    and expanded into other territories. Although no individual artist is credited, the message and design originated from 
-    coordinated campaigns created by the <strong>Reich Ministry of Public Enlightenment and Propaganda</strong>. 
-  </p>
+  <div class="layout">
+    
+    <!-- IMAGE LEFT -->
+    <img 
+      src="einvolk.jpg"
+      alt="Ein Volk, ein Reich, ein Führer propaganda poster"
+      class="poster-img"
+      id="poster1-img"
+    />
 
-  <img src="einvolk.jpg"
-       alt="Ein Volk, ein Reich, ein Führer propaganda poster"
-       class="poster-img"
-       id="poster-image" />
+    <!-- TEXT RIGHT -->
+    <div>
+      <p>
+        This political propaganda poster, whose slogan translates to 
+        <strong>“One People, One Empire, One Leader,”</strong> became widely visible during 1938–1939
+        as Nazi Germany expanded into Austria and other territories. The design was produced under the 
+        direction of the <strong>Reich Ministry of Public Enlightenment and Propaganda</strong>.
+      </p>
 
-  <p>
-    The slogan encouraged Germans to imagine themselves as part of a unified racial and political community led by Adolf Hitler. 
-    It implied that national identity, loyalty, and obedience were inseparable—and that dissent or diversity weakened the nation.
-  </p>
+      <h3 class="section-title">Purpose and Message</h3>
+      <ul>
+        <li>Promoted loyalty to Hitler as the embodiment of the German people.</li>
+        <li>Framed political unity as racial unity—“one people” meant exclusion of minorities.</li>
+        <li>Used repetition to reinforce emotional attachment to the regime.</li>
+      </ul>
 
-  <h3 class="section-title">Creation and Distribution</h3>
-  <p>
-    The phrase appeared on posters, banners, and newspapers during the <em>Anschluss</em> and at mass rallies. 
-    State-controlled printing offices produced thousands of copies, placing them in schools, government buildings, and public streets. 
-    Today, surviving originals are preserved in archives such as the United States Holocaust Memorial Museum, which digitizes 
-    confiscated propaganda materials.
-  </p>
+      <h3 class="section-title">Creation and Distribution</h3>
+      <p>
+        The slogan appeared everywhere—on posters, signs, banners, and parade decorations.
+        State printers mass-produced it and placed copies in:
+      </p>
+      <ul>
+        <li>Government buildings</li>
+        <li>Schools and youth camps</li>
+        <li>Train stations and city squares</li>
+        <li>Large public rally routes</li>
+      </ul>
 
-  <h3 class="section-title">Meaning and Visual Message</h3>
-  <p>
-    Its simplicity was intentional. Short, repetitive messaging is more easily absorbed, and the slogan implied that the people, 
-    the state, and Hitler were one unified entity. This framing left no room for political disagreement or minority identities. 
-  </p>
-  <p>
-    The message echoed themes from Hitler’s <strong>January 30, 1939 Reichstag speech</strong>, where he spoke about Germany’s destiny 
-    and issued open threats toward the Jewish population. Reports of the speech appeared in state media, reinforcing the message 
-    visually promoted by posters like this one (United States Holocaust Memorial Museum, “Reichstag Speech”).
-  </p>
-
-  <h3 class="section-title">Historical Significance</h3>
-  <p>
-    The poster reveals how dictatorship was framed as unity. By presenting authoritarian rule as a natural expression of national 
-    belonging, the regime encouraged ordinary citizens to see loyalty to Hitler as loyalty to Germany itself. This made later acts 
-    of repression and violence appear justified in the name of protecting the “people.”
-  </p>
-
-  <h3 class="section-title">Cited</h3>
-  <p>United States Holocaust Memorial Museum, “Reichstag Speech,” <em>Holocaust Encyclopedia</em>.</p>
-  <p>PBS, “Joseph Goebbels (1897–1945),” <em>American Experience</em>.</p>
+      <h3 class="section-title">Historical Significance</h3>
+      <p>
+        This poster reframed dictatorship as unity. By merging Hitler, the people, and the nation into 
+        a single identity, dissent appeared un-German. This emotional groundwork made later policies—
+        including persecution and war—seem like collective duty rather than political violence.
+      </p>
+    </div>
+  </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
-  <img src="einvolk.jpg" alt="Expanded poster view">
+  <img src="einvolk.jpg" alt="">
 </div>
+
 
 <script>
   /* THEME SWITCH */
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
-  const saved = localStorage.getItem("theme");
+  const savedTheme = localStorage.getItem("theme");
 
-  if (saved) {
-    html.setAttribute("data-theme", saved);
-    toggle.textContent = saved === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  if (savedTheme) {
+    html.setAttribute("data-theme", savedTheme);
+    toggle.textContent =
+      savedTheme === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   }
 
   toggle.addEventListener("click", () => {
-    const mode = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", mode);
-    localStorage.setItem("theme", mode);
-    toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+    const theme =
+      html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    toggle.textContent =
+      theme === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   });
 
   /* LIGHTBOX */
-  const img = document.getElementById("poster-image");
+  const img = document.getElementById("poster1-img");
   const lightbox = document.getElementById("lightbox");
 
   img.addEventListener("click", () => {
