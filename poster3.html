@@ -6,28 +6,24 @@
   <title>Poster 3 – Sterilisation ist Befreiung, nicht Strafe</title>
 
   <style>
-    /* ====== THEME COLORS ====== */
     :root {
-      --bg-color: rgba(255,255,255,0.82);
+      --bg-color: rgba(255,255,255,0.85);
       --text-color: #222;
-      --card-bg: rgba(255,255,255,0.88);
-      --accent: #7a0f0f;
-      --nav-bg: rgba(0,0,0,0.65);
-      --nav-link-bg: rgba(80,80,80,0.7);
-      --nav-link-hover: rgba(120,120,120,0.8);
+      --card-bg: rgba(255,255,255,0.92);
+      --nav-bg: rgba(0,0,0,0.75);
+      --nav-link-bg: rgba(40,40,40,0.7);
+      --nav-link-hover: rgba(70,70,70,0.85);
     }
 
     [data-theme="dark"] {
-      --bg-color: rgba(20,20,30,0.75);
-      --text-color: #e8e8e8;
-      --card-bg: rgba(30,30,40,0.75);
-      --accent: #c94141;
-      --nav-bg: rgba(0,0,0,0.75);
-      --nav-link-bg: rgba(50,50,70,0.7);
-      --nav-link-hover: rgba(80,80,110,0.8);
+      --bg-color: rgba(20,20,20,0.85);
+      --text-color: #f1f1f1;
+      --card-bg: rgba(25,25,25,0.9);
+      --nav-bg: rgba(0,0,0,0.85);
+      --nav-link-bg: rgba(60,60,60,0.85);
+      --nav-link-hover: rgba(90,90,90,0.9);
     }
 
-    /* ====== BACKGROUND IMAGE ====== */
     body {
       margin: 0;
       font-family: "Times New Roman", serif;
@@ -36,87 +32,63 @@
       background-attachment: fixed;
       background-position: center;
       color: var(--text-color);
-      font-size: 19px;
+      font-size: 18px;
       line-height: 1.75;
     }
 
-    /* ====== NAV BAR ====== */
     nav {
       background: var(--nav-bg);
-      padding: 14px;
+      padding: 12px 18px;
       display: flex;
-      justify-content: center;
-      gap: 16px;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
       backdrop-filter: blur(4px);
     }
 
     nav a, nav button {
-      color: #fff;
       background: var(--nav-link-bg);
+      color: #fff;
       padding: 8px 16px;
       text-decoration: none;
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      font-size: 17px;
-      transition: background .2s ease, transform .2s ease;
+      font-size: 16px;
+      transition: background .2s ease;
     }
 
-    nav a:hover, nav button:hover {
-      background: var(--nav-link-hover);
-      transform: translateY(-1px);
-    }
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); }
 
-    /* ====== MAIN CONTENT CARD ====== */
     .container {
-      max-width: 1100px;
+      max-width: 1300px;
       margin: 40px auto;
       background: var(--card-bg);
       padding: 40px;
-      border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-      backdrop-filter: blur(4px);
+      border-radius: 16px;
+      backdrop-filter: blur(5px);
     }
 
-    h2 {
-      text-align: center;
-      font-size: 1.9rem;
-      margin-bottom: 22px;
-      border-bottom: 2px solid rgba(0,0,0,0.15);
-      padding-bottom: 10px;
+    .flex {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
     }
 
-    /* Poster formatting */
+    .left { flex: 0 0 45%; }
+    .right { flex: 0 0 55%; }
+
     .poster-img {
-      display: block;
-      margin: 0 auto 30px auto;
-      width: 70%;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
       cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease;
+      transition: transform .25s ease;
     }
+    .poster-img:hover { transform: scale(1.03); }
 
-    .poster-img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
-    }
-
-    .section-title {
-      margin-top: 32px;
-      font-size: 1.35rem;
-      border-bottom: 2px solid rgba(0,0,0,0.15);
-      padding-bottom: 6px;
-    }
-
-    p {
-      margin-bottom: 16px;
-    }
-
-    /* Lightbox */
     #lightbox3 {
       position: fixed;
       inset: 0;
@@ -130,124 +102,118 @@
     #lightbox3 img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
+    h2 {
+      border-bottom: 2px solid #aaa;
+      padding-bottom: 6px;
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 28px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    ul { margin-left: 18px; }
   </style>
 </head>
-
 
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="poster1.html">Poster 1</a>
-  <a href="poster2.html">Poster 2</a>
-  <a href="poster3.html">Poster 3</a>
-  <a href="sources.html">Sources</a>
-  <button id="theme-toggle">🌙 Dark mode</button>
+  <a href="index.html">← Back to Home</a>
+  <button id="theme-toggle-p3">🌙 Dark mode</button>
 </nav>
 
 <div class="container">
   <h2>“Sterilisation ist Befreiung, nicht Strafe”</h2>
 
-  <!-- Poster centered -->
-  <img 
-    src="sterilisation.jpg"
-    alt="Nazi propaganda poster portraying sterilization as liberation"
-    class="poster-img"
-    id="poster3-img"
-  />
+  <div class="flex">
 
-  <p>
-    This propaganda poster, meaning <strong>“Sterilization is liberation, not punishment,”</strong> was created in the 
-    mid-1930s as part of Nazi Germany’s campaign to promote compulsory sterilization. Rather than showing force or 
-    violence, the poster uses calm imagery to portray sterilization as a generous and protective medical service.
-  </p>
+    <!-- IMAGE LEFT -->
+    <div class="left">
+      <img src="sterilisation.jpg" class="poster-img" id="poster3-img" alt="Sterilisation ist Befreiung, nicht Strafe poster">
+    </div>
 
-  <h3 class="section-title">Purpose and Audience</h3>
-  <p>
-    The poster was distributed in <strong>public health clinics, hospitals, counseling centers, and government offices</strong>. 
-    Its goal was to make sterilization appear:
-  </p>
+    <!-- TEXT RIGHT -->
+    <div class="right">
 
-  <ul>
-    <li>scientific and modern</li>
-    <li>beneficial for families and society</li>
-    <li>a responsible choice rather than a violation of rights</li>
-  </ul>
+      <h3>Background and Intent</h3>
+      <p>
+        This propaganda poster, created in the mid-1930s, presents sterilization as a humane act—“liberation, not punishment.”
+        Its purpose was to soften public resistance to the 1933 Law for the Prevention of Hereditarily Diseased Offspring.
+        Instead of showing coercion or medical violence, the poster hides state power behind comforting imagery.
+      </p>
 
-  <p>
-    It targeted not only individuals facing sterilization but also the general public, encouraging them to view the policy 
-    as necessary for the health of the nation.
-  </p>
+      <h3>Where the Poster Was Displayed</h3>
+      <ul>
+        <li>Hospitals and hereditary health courts</li>
+        <li>Public health counseling centers</li>
+        <li>Government-run educational exhibitions</li>
+        <li>Waiting rooms and welfare offices</li>
+      </ul>
 
-  <h3 class="section-title">Meaning and Visual Strategy</h3>
-  <p>
-    The poster’s message reframes sterilization as a form of freedom—claiming that it liberates people from illness, or from 
-    becoming parents to “unhealthy” children. This framing hides the reality that sterilization decisions were driven by 
-    prejudice against disabled people, the poor, and others who did not fit the Nazi vision of a “healthy” racial community.
-  </p>
+      <h3>Message and Visual Strategy</h3>
+      <p>
+        The poster frames sterilization as beneficial for the individual, the family, and the nation. This framing was essential:
+        the regime needed people to believe that medical loss of autonomy was an act of care.
+      </p>
 
-  <p>
-    Visually, these posters used:
-  </p>
-  <ul>
-    <li>clean, modern medical imagery</li>
-    <li>calm, hopeful expressions on the figures</li>
-    <li>bright and sanitary color palettes</li>
-  </ul>
+      <ul>
+        <li>Bright, orderly medical imagery to create trust</li>
+        <li>Language suggesting freedom rather than state force</li>
+        <li>Appeals to "responsibility" and “national health”</li>
+        <li>A message that some people should embrace sterilization for the greater good</li>
+      </ul>
 
-  <p>
-    These design choices helped disguise coercion as compassion—turning a violation of bodily autonomy into something that 
-    looked caring, scientific, and responsible.
-  </p>
+      <p>
+        This approach masked the reality: sterilization courts operated quickly, often targeting people labeled as disabled,
+        poor, or socially “unfit.” The poster helped create emotional distance between the viewer and those being harmed.
+      </p>
 
-  <h3 class="section-title">Historical Significance</h3>
-  <p>
-    Posters like this helped normalize the idea that reproductive rights could be taken away for the “greater good.”  
-    By reducing resistance to sterilization policies, the propaganda campaign paved the way for the expansion of Nazi 
-    medical violence, including the so-called “euthanasia” program that targeted disabled children and adults.
-  </p>
+      <h3>Historical Significance</h3>
+      <p>
+        Posters like this were a crucial step in normalizing reproductive control. Once people accepted sterilization as a
+        positive intervention, it became easier for the regime to move toward the killing of disabled children and adults
+        in the so-called “euthanasia” program. Soft language laid the foundation for catastrophic violence.
+      </p>
+
+    </div>
+  </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox3">
-  <img src="sterilisation.jpg" alt="">
+  <img src="sterilisation.jpg">
 </div>
 
 <script>
-  /* THEME SWITCH */
-  const toggle = document.getElementById("theme-toggle");
-  const html = document.documentElement;
-  const savedTheme = localStorage.getItem("theme");
+  /* Theme Toggle */
+  const toggle3 = document.getElementById("theme-toggle-p3");
+  const root3 = document.documentElement;
+  const saved3 = localStorage.getItem("theme");
 
-  if (savedTheme) {
-    html.setAttribute("data-theme", savedTheme);
-    toggle.textContent = 
-      savedTheme === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  if (saved3) {
+    root3.setAttribute("data-theme", saved3);
+    toggle3.textContent = saved3 === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   }
 
-  toggle.addEventListener("click", () => {
-    const mode = 
-      html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", mode);
+  toggle3.onclick = () => {
+    const mode = root3.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root3.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
-    toggle.textContent =
-      mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
-  });
+    toggle3.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  };
 
-  /* LIGHTBOX */
+  /* Lightbox */
   const img3 = document.getElementById("poster3-img");
   const lightbox3 = document.getElementById("lightbox3");
 
-  img3.addEventListener("click", () => {
-    lightbox3.style.display = "flex";
-  });
-
-  lightbox3.addEventListener("click", () => {
-    lightbox3.style.display = "none";
-  });
+  img3.onclick = () => { lightbox3.style.display = "flex"; };
+  lightbox3.onclick = () => { lightbox3.style.display = "none"; };
 </script>
 
 </body>
