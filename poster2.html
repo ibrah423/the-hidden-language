@@ -7,20 +7,20 @@
 
   <style>
     :root {
-      --bg-color: rgba(255,255,255,0.85);
+      --bg-color: rgba(255,255,255,0.84);
       --text-color: #222;
-      --card-bg: rgba(255,255,255,0.92);
-      --nav-bg: rgba(0,0,0,0.75);
-      --nav-link-bg: rgba(40,40,40,0.7);
-      --nav-link-hover: rgba(70,70,70,0.85);
+      --card-bg: rgba(255,255,255,0.90);
+      --nav-bg: rgba(0,0,0,0.65);
+      --nav-link-bg: rgba(80,80,80,0.7);
+      --nav-link-hover: rgba(120,120,120,0.8);
     }
 
     [data-theme="dark"] {
-      --bg-color: rgba(20,20,20,0.85);
+      --bg-color: rgba(20,20,30,0.80);
       --text-color: #f1f1f1;
-      --card-bg: rgba(25,25,25,0.9);
+      --card-bg: rgba(30,30,40,0.85);
       --nav-bg: rgba(0,0,0,0.85);
-      --nav-link-bg: rgba(60,60,60,0.85);
+      --nav-link-bg: rgba(60,60,60,0.8);
       --nav-link-hover: rgba(90,90,90,0.9);
     }
 
@@ -32,61 +32,76 @@
       background-attachment: fixed;
       background-position: center;
       color: var(--text-color);
-      font-size: 18px;
-      line-height: 1.75;
+      font-size: 19px;
+      line-height: 1.85;
     }
 
     nav {
       background: var(--nav-bg);
-      padding: 12px 18px;
+      padding: 14px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      gap: 16px;
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(4px);
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
 
     nav a, nav button {
-      background: var(--nav-link-bg);
       color: #fff;
+      background: var(--nav-link-bg);
       padding: 8px 16px;
-      text-decoration: none;
       border-radius: 999px;
+      text-decoration: none;
       border: none;
+      font-size: 17px;
       cursor: pointer;
-      font-size: 16px;
-      transition: background .2s ease;
+      transition: background .25s ease, transform .2s ease;
     }
 
-    nav a:hover, nav button:hover { background: var(--nav-link-hover); }
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); transform: translateY(-1px); }
 
     .container {
-      max-width: 1300px;
-      margin: 40px auto;
+      max-width: 1250px;
+      margin: 50px auto;
       background: var(--card-bg);
-      padding: 40px;
-      border-radius: 16px;
-      backdrop-filter: blur(5px);
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #555;
+      padding-bottom: 12px;
     }
 
     .flex {
       display: flex;
-      gap: 40px;
+      gap: 35px;
       align-items: flex-start;
     }
 
-    .left { flex: 0 0 55%; }
-    .right { flex: 0 0 45%; }
+    .left {
+      flex: 0 0 55%;
+    }
+
+    .right {
+      flex: 0 0 45%;
+    }
 
     .poster-img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
       cursor: pointer;
       transition: transform .25s ease;
     }
+
     .poster-img:hover { transform: scale(1.03); }
 
     #lightbox2 {
@@ -102,30 +117,32 @@
     #lightbox2 img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 10px;
-    }
-
-    h2 {
-      border-bottom: 2px solid #aaa;
-      padding-bottom: 6px;
-      margin-top: 0;
+      border-radius: 14px;
     }
 
     h3 {
-      margin-top: 28px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
+      margin-top: 25px;
+      border-bottom: 1px solid #888;
+      padding-bottom: 6px;
+      font-size: 1.3rem;
     }
 
-    ul { margin-left: 18px; }
+    ul { margin-left: 20px; }
   </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <a href="index.html">← Back to Home</a>
-  <button id="theme-toggle-p2">🌙 Dark mode</button>
+  <a href="Home.html">Home</a>
+  <a href="index.html">Introduction</a>
+  <a href="poster1.html">Poster 1</a>
+  <a href="poster2.html">Poster 2</a>
+  <a href="poster3.html">Poster 3</a>
+  <a href="conclusion.html">Conclusion</a>
+  <a href="sources.html">Sources</a>
+  <button id="theme-toggle">🌙 Dark mode</button>
 </nav>
 
 <div class="container">
@@ -133,53 +150,47 @@
 
   <div class="flex">
 
-    <!-- LEFT — TEXT -->
+    <!-- TEXT LEFT -->
     <div class="left">
+
       <h3>Background and Purpose</h3>
       <p>
         Created around 1936, this eugenics poster titled <strong>“The Horrible Legacy of a Female Drunkard”</strong>
-        was designed to make hereditary “degeneration” feel like an urgent threat to the German population.
-        It used the story of one woman to suggest that entire generations could be weakened by her behavior.
+        portrayed alcoholism as a hereditary danger to the German nation. By depicting multiple generations
+        of “degenerate” descendants, it framed addiction not as a medical issue but as a biological threat.
       </p>
 
       <h3>Where the Poster Appeared</h3>
       <ul>
-        <li>Public health exhibitions and propaganda displays</li>
-        <li>Hospitals and medical waiting rooms</li>
-        <li>School biology classrooms teaching racial hygiene</li>
-        <li>Pamphlets distributed by the Office of Racial Policy</li>
+        <li>Health exhibitions and racial hygiene lectures</li>
+        <li>Hospitals, clinics, and doctor waiting rooms</li>
+        <li>School biology lessons promoting eugenic ideology</li>
+        <li>Printed pamphlets produced by the Office of Racial Policy</li>
       </ul>
 
-      <h3>Visual Message and Strategy</h3>
-      <p>
-        The poster’s purpose was not education—it was emotional manipulation. It used fear to convince viewers
-        that private behavior created public danger. The imagery portrays:
-      </p>
+      <h3>Symbolic and Emotional Strategies</h3>
+      <p>This poster used emotional fear to convince viewers that:</p>
 
       <ul>
-        <li>A direct link between one mother’s alcoholism and “damaged” future generations</li>
-        <li>Children drawn with deformities to trigger disgust and fear</li>
-        <li>A warning that “neglectful” parents burden the nation</li>
-        <li>Pseudoscientific claims presented as facts</li>
+        <li>One person’s “immorality” could harm the entire nation</li>
+        <li>Children would be doomed by their parents’ behavior</li>
+        <li>Disability, poverty, and criminality were hereditary traits</li>
+        <li>State intervention—especially sterilization—was necessary</li>
       </ul>
 
+      <h3>Historical Importance</h3>
       <p>
-        This visual language made the 1933 sterilization law seem medically responsible rather than discriminatory.
-        By framing alcoholism as hereditary, the poster argued that the state not families should decide who
-        was “fit” to reproduce.
+        This poster helped normalize the idea that certain people were a burden on Germany.
+        Once the public accepted this belief, it became easier for the regime to justify
+        forced sterilization, institutionalization, and eventually the murder of disabled Germans
+        in the so-called “euthanasia” program.
       </p>
 
-      <h3>Historical Significance</h3>
-      <p>
-        Posters like this normalized the idea that the government had the right to control reproduction. They built
-        public support for forced sterilization, institutionalization, and later, the killing of disabled children
-        and adults in the so-called “euthanasia” program.
-      </p>
     </div>
 
-    <!-- RIGHT — IMAGE -->
+    <!-- IMAGE RIGHT -->
     <div class="right">
-      <img src="trunkenen.jpg" class="poster-img" id="poster2-img" alt="Das furchtbare Erbe einer Trunkenen poster">
+      <img src="trunkenen.jpg" class="poster-img" id="poster2-img" alt="Das furchtbare Erbe einer Trunkenen">
     </div>
 
   </div>
@@ -190,30 +201,28 @@
   <img src="trunkenen.jpg">
 </div>
 
+<!-- DARK MODE + LIGHTBOX SCRIPT -->
 <script>
-  /* Theme Toggle */
-  const toggle2 = document.getElementById("theme-toggle-p2");
-  const root2 = document.documentElement;
-  const saved2 = localStorage.getItem("theme");
+  const toggle = document.getElementById("theme-toggle");
+  const html = document.documentElement;
+  const saved = localStorage.getItem("theme");
 
-  if (saved2) {
-    root2.setAttribute("data-theme", saved2);
-    toggle2.textContent = saved2 === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  if (saved) {
+    html.setAttribute("data-theme", saved);
+    toggle.textContent = saved === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   }
 
-  toggle2.onclick = () => {
-    const mode = root2.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root2.setAttribute("data-theme", mode);
+  toggle.addEventListener("click", () => {
+    const mode = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", mode);
     localStorage.setItem("theme", mode);
-    toggle2.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
-  };
+    toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  });
 
-  /* Lightbox */
   const img2 = document.getElementById("poster2-img");
   const lightbox2 = document.getElementById("lightbox2");
-
-  img2.onclick = () => { lightbox2.style.display = "flex"; };
-  lightbox2.onclick = () => { lightbox2.style.display = "none"; };
+  img2.onclick = () => lightbox2.style.display = "flex";
+  lightbox2.onclick = () => lightbox2.style.display = "none";
 </script>
 
 </body>
