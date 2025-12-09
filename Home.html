@@ -3,108 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home – The Hidden Language of Nazi Propaganda</title>
+  <title>Home – Nazi Propaganda Project</title>
 
   <style>
     :root {
-      --bg-overlay-light: rgba(255,255,255,0.70);
-      --bg-overlay-dark: rgba(0,0,0,0.65);
-      --text-color: #222;
-      --text-color-dark: #e8e8e8;
-      --nav-bg: rgba(0,0,0,0.55);
-      --nav-bg-dark: rgba(0,0,0,0.75);
+      --bg-color: rgba(0,0,0,0.6);
+      --text-color: #fff;
+      --nav-bg: rgba(0,0,0,0.65);
+      --nav-link-bg: rgba(80,80,80,0.7);
+      --nav-link-hover: rgba(120,120,120,0.8);
     }
 
     [data-theme="dark"] {
-      --text-color: var(--text-color-dark);
-      --bg-overlay-light: var(--bg-overlay-dark);
+      --bg-color: rgba(0,0,0,0.75);
+      --text-color: #f1f1f1;
+      --nav-bg: rgba(0,0,0,0.85);
+      --nav-link-bg: rgba(60,60,60,0.8);
+      --nav-link-hover: rgba(90,90,90,0.9);
     }
 
-    /* BACKGROUND */
     body {
       margin: 0;
       font-family: "Times New Roman", serif;
       background-image: url("cover.jpg");
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
+      background-position: center;
+      height: 100vh;
       color: var(--text-color);
+      display: flex;
+      flex-direction: column;
     }
 
-    /* NAVIGATION */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 14px;
       background: var(--nav-bg);
-      backdrop-filter: blur(5px);
+      padding: 12px;
       display: flex;
       justify-content: center;
       gap: 16px;
-      z-index: 20;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
 
     nav a, nav button {
       color: #fff;
-      background: rgba(50,50,50,0.6);
-      padding: 8px 16px;
+      background: var(--nav-link-bg);
+      padding: 8px 18px;
       border-radius: 999px;
-      font-size: 17px;
       text-decoration: none;
+      border: none;
+      font-size: 17px;
       cursor: pointer;
       transition: background .25s ease, transform .2s ease;
-      border: none;
     }
 
-    nav a:hover, nav button:hover {
-      background: rgba(90,90,90,0.85);
-      transform: translateY(-1px);
-    }
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); transform: translateY(-1px); }
 
-    /* HERO SECTION */
-    .hero {
-      height: 100vh;
-      width: 100%;
-      background: var(--bg-overlay-light);
-      backdrop-filter: blur(4px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    .center-box {
+      margin: auto;
       text-align: center;
-      padding: 20px;
+      background: rgba(0,0,0,0.55);
+      padding: 50px;
+      border-radius: 18px;
+      backdrop-filter: blur(4px);
+      width: 60%;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 12px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
     }
 
-    .hero p {
-      font-size: 1.4rem;
-      max-width: 900px;
-      margin: 0 auto 30px auto;
+    h2 {
+      font-size: 1.5rem;
+      font-style: italic;
+      opacity: 0.9;
     }
-
-    .enter-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 30px;
-      font-size: 1.2rem;
-      background: rgba(0,0,0,0.75);
-      color: #fff;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: background .3s ease, transform .2s ease;
-    }
-
-    .enter-btn:hover {
-      background: rgba(20,20,20,0.95);
-      transform: scale(1.05);
-    }
-
   </style>
 </head>
 
@@ -122,17 +98,12 @@
   <button id="theme-toggle">🌙 Dark mode</button>
 </nav>
 
-<!-- COVER CONTENT -->
-<div class="hero">
-  <h1><strong>The Hidden Language of Nazi Propaganda</strong></h1>
-  <p>
-    A digital exhibition exploring how imagery, messaging, and controlled media shaped belief,
-    identity, and obedience in the Third Reich.
-  </p>
-
-  <a href="index.html" class="enter-btn">Enter Project →</a>
+<div class="center-box">
+  <h1>The Hidden Language of Nazi Propaganda</h1>
+  <h2>A Visual & Historical Analysis</h2>
 </div>
 
+<!-- DARK MODE SCRIPT -->
 <script>
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
