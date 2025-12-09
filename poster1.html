@@ -7,20 +7,20 @@
 
   <style>
     :root {
-      --bg-color: rgba(255,255,255,0.85);
+      --bg-color: rgba(255,255,255,0.84);
       --text-color: #222;
-      --card-bg: rgba(255,255,255,0.92);
-      --nav-bg: rgba(0,0,0,0.75);
-      --nav-link-bg: rgba(40,40,40,0.7);
-      --nav-link-hover: rgba(70,70,70,0.85);
+      --card-bg: rgba(255,255,255,0.90);
+      --nav-bg: rgba(0,0,0,0.65);
+      --nav-link-bg: rgba(80,80,80,0.7);
+      --nav-link-hover: rgba(120,120,120,0.8);
     }
 
     [data-theme="dark"] {
-      --bg-color: rgba(20,20,20,0.85);
+      --bg-color: rgba(20,20,30,0.80);
       --text-color: #f1f1f1;
-      --card-bg: rgba(25,25,25,0.9);
+      --card-bg: rgba(30,30,40,0.85);
       --nav-bg: rgba(0,0,0,0.85);
-      --nav-link-bg: rgba(60,60,60,0.85);
+      --nav-link-bg: rgba(60,60,60,0.8);
       --nav-link-hover: rgba(90,90,90,0.9);
     }
 
@@ -29,63 +29,79 @@
       font-family: "Times New Roman", serif;
       background-image: url("German.jpg");
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
+      background-position: center;
       color: var(--text-color);
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 19px;
+      line-height: 1.85;
     }
 
     nav {
       background: var(--nav-bg);
-      padding: 12px 18px;
+      padding: 14px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      gap: 16px;
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(4px);
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
 
     nav a, nav button {
-      background: var(--nav-link-bg);
       color: #fff;
+      background: var(--nav-link-bg);
       padding: 8px 16px;
-      text-decoration: none;
       border-radius: 999px;
+      text-decoration: none;
       border: none;
+      font-size: 17px;
       cursor: pointer;
-      transition: background .2s ease;
-      font-size: 16px;
+      transition: background .25s ease, transform .2s ease;
     }
-    nav a:hover, nav button:hover { background: var(--nav-link-hover); }
+
+    nav a:hover, nav button:hover { background: var(--nav-link-hover); transform: translateY(-1px); }
 
     .container {
-      max-width: 1300px;
-      margin: 40px auto;
+      max-width: 1250px;
+      margin: 50px auto;
       background: var(--card-bg);
-      padding: 40px;
-      border-radius: 16px;
-      backdrop-filter: blur(5px);
+      padding: 50px;
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #555;
+      padding-bottom: 12px;
     }
 
     .flex {
       display: flex;
-      gap: 40px;
+      gap: 35px;
       align-items: flex-start;
     }
 
-    .left { flex: 0 0 48%; }
-    .right { flex: 0 0 52%; }
+    .left {
+      flex: 0 0 45%;
+    }
+
+    .right {
+      flex: 0 0 55%;
+    }
 
     .poster-img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
       cursor: pointer;
       transition: transform .25s ease;
     }
+
     .poster-img:hover { transform: scale(1.03); }
 
     #lightbox {
@@ -101,29 +117,33 @@
     #lightbox img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 10px;
-    }
-
-    h2 {
-      margin-top: 0;
-      border-bottom: 2px solid #aaa;
-      padding-bottom: 6px;
+      border-radius: 14px;
     }
 
     h3 {
       margin-top: 28px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 6px;
+      font-size: 1.3rem;
     }
 
-    ul { margin-left: 18px; }
+    ul {
+      margin-left: 20px;
+    }
   </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <a href="index.html">← Back to Home</a>
+  <a href="Home.html">Home</a>
+  <a href="index.html">Introduction</a>
+  <a href="poster1.html">Poster 1</a>
+  <a href="poster2.html">Poster 2</a>
+  <a href="poster3.html">Poster 3</a>
+  <a href="conclusion.html">Conclusion</a>
+  <a href="sources.html">Sources</a>
   <button id="theme-toggle">🌙 Dark mode</button>
 </nav>
 
@@ -131,7 +151,6 @@
   <h2>“Ein Volk, ein Reich, ein Führer!”</h2>
 
   <div class="flex">
-
     <!-- IMAGE LEFT -->
     <div class="left">
       <img src="einvolk.jpg" class="poster-img" id="poster1-img" alt="Ein Volk, ein Reich, ein Führer poster">
@@ -139,44 +158,41 @@
 
     <!-- TEXT RIGHT -->
     <div class="right">
-
       <h3>Background and Purpose</h3>
       <p>
-        This widely distributed propaganda poster appeared across Germany in 1938–1939, during the annexation of Austria and the
-        expansion of the Nazi state. The slogan <strong>“Ein Volk, ein Reich, ein Führer!”</strong> (“One People, One Empire, One Leader!”)
-        became a rallying cry that connected nationalism directly to obedience toward Hitler.
+        Produced in the late 1930s, this poster promoted the slogan <strong>“One People, One Empire, One Leader”</strong>.
+        It became especially widespread during the 1938 Anschluss with Austria and the subsequent expansion of Nazi territory.
+        The message was simple but powerful—Hitler’s authority was presented as the unifying force of all ethnic Germans.
       </p>
 
-      <h3>How the Poster Functioned</h3>
+      <h3>Distribution Across Germany</h3>
       <ul>
-        <li>Created emotional unity around a single leader</li>
-        <li>Eliminated the idea of political diversity</li>
-        <li>Linked national identity with racial identity</li>
-        <li>Promoted the belief that loyalty to Hitler was loyalty to Germany itself</li>
+        <li>Hung along streets during rallies and marches</li>
+        <li>Placed in schools, government offices, and city squares</li>
+        <li>Printed in newspapers and political brochures</li>
+        <li>Used in coordinated propaganda events overseen by Goebbels’ ministry</li>
       </ul>
 
-      <h3>Visual Message</h3>
+      <h3>Meaning and Visual Strategy</h3>
       <p>
-        The simplicity of the poster was intentional. Instead of overwhelming viewers, the slogan and imagery worked together
-        to make dictatorship feel natural and patriotic. The design implied:
+        The slogan reduces national identity to absolute unity: one people, one state, one ruler.
+        This intentionally removed space for dissent or alternative viewpoints. Posters like this helped redefine obedience
+        as patriotism and presented loyalty to Hitler as a requirement of being truly German.
       </p>
+
       <ul>
-        <li>The German people form one unified racial “body”</li>
-        <li>A single leader is needed to guide that body</li>
-        <li>Criticism of Hitler equals betrayal of the nation</li>
+        <li>Short, repetitive messaging = easy to memorize</li>
+        <li>Red and black color scheme reinforced urgency and power</li>
+        <li>Imagery encouraged emotional identification with the “national community”</li>
+        <li>Aligned with Hitler’s 1939 Reichstag speech which framed unity as destiny</li>
       </ul>
 
-      <h3>Historical Significance</h3>
+      <h3>Historical Importance</h3>
       <p>
-        This poster helped build the emotional foundation for later policies targeting Jews, Roma, disabled Germans, and other
-        groups labeled as “outsiders.” By promoting the idea that unity required obedience, the regime erased space for dissent.
+        This poster demonstrates how dictatorship can be disguised as unity. Its message laid groundwork for social exclusion,
+        political violence, and eventually genocide—because once “the people” were defined, everyone outside that category
+        became an enemy of the state.
       </p>
-
-      <p>
-        This message, repeated across rallies, newspapers, and radio broadcasts, shaped a society where extreme violence could be
-        justified as necessary for the protection of the “national community.”
-      </p>
-
     </div>
   </div>
 </div>
@@ -186,8 +202,8 @@
   <img src="einvolk.jpg">
 </div>
 
+<!-- DARK MODE + LIGHTBOX SCRIPT -->
 <script>
-  /* THEME TOGGLE */
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
   const saved = localStorage.getItem("theme");
@@ -197,14 +213,13 @@
     toggle.textContent = saved === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   }
 
-  toggle.onclick = () => {
-    const newMode = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", newMode);
-    localStorage.setItem("theme", newMode);
-    toggle.textContent = newMode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
-  };
+  toggle.addEventListener("click", () => {
+    const mode = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", mode);
+    localStorage.setItem("theme", mode);
+    toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
+  });
 
-  /* LIGHTBOX */
   const img = document.getElementById("poster1-img");
   const lightbox = document.getElementById("lightbox");
   img.onclick = () => lightbox.style.display = "flex";
