@@ -89,8 +89,16 @@
       align-items: flex-start;
     }
 
-    .left { flex: 0 0 45%; }
-    .right { flex: 0 0 55%; }
+    .left {
+      flex: 0 0 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .right {
+      flex: 0 0 55%;
+    }
 
     .poster-img {
       width: 100%;
@@ -100,7 +108,9 @@
       transition: transform .25s ease;
     }
 
-    .poster-img:hover { transform: scale(1.03); }
+    .poster-img:hover {
+      transform: scale(1.03);
+    }
 
     #lightbox {
       position: fixed;
@@ -125,7 +135,9 @@
       font-size: 1.3rem;
     }
 
-    ul { margin-left: 20px; }
+    ul {
+      margin-left: 20px;
+    }
   </style>
 </head>
 
@@ -148,12 +160,24 @@
 
   <div class="flex">
 
-    <!-- IMAGE LEFT -->
+    <!-- LEFT COLUMN WITH TWO IMAGES -->
     <div class="left">
-      <img src="einvolk.jpg" class="poster-img" id="poster1-img" alt="Ein Volk, ein Reich, ein Führer poster">
+
+      <!-- Main poster image -->
+      <img src="einvolk.jpg" 
+           class="poster-img" 
+           id="poster1-img" 
+           alt="Ein Volk, ein Reich, ein Führer poster">
+
+      <!-- Second image added -->
+      <img src="German 2.jpg"
+           class="poster-img"
+           id="poster1-img2"
+           alt="Additional historical Nazi propaganda image">
+
     </div>
 
-    <!-- TEXT RIGHT -->
+    <!-- RIGHT COLUMN (TEXT) -->
     <div class="right">
 
       <h3>Background and Purpose</h3>
@@ -168,55 +192,56 @@
       <h3>Distribution Across the Reich</h3>
       <ul>
         <li>Displayed during mass rallies, marches, and plebiscites</li>
-        <li>Placed in schools, post offices, government buildings, and factories</li>
-        <li>Printed in newspapers and election pamphlets</li>
-        <li>Distributed through Goebbels’ highly centralized propaganda apparatus</li>
+        <li>Placed in schools, government offices, and factories</li>
+        <li>Printed in newspapers and propaganda brochures</li>
+        <li>Distributed through Goebbels’ centralized propaganda ministry</li>
       </ul>
 
       <p>
-        According to the United States Holocaust Memorial Museum, such posters were deliberately positioned in
-        everyday environments to ensure constant exposure. This saturation strategy helped build what David Welch
-        describes as a visual sense of <em>Volksgemeinschaft</em>—a “national community” that appeared united
-        behind a single leader.
+        According to the United States Holocaust Memorial Museum, such posters were placed deliberately in
+        everyday environments to ensure constant contact with Nazi messaging. David Welch explains that this
+        saturation built a “visual Volksgemeinschaft,” giving citizens the sense that the entire nation stood
+        behind Hitler’s leadership and goals.
       </p>
 
       <h3>Meaning and Visual Strategy</h3>
       <p>
-        The poster’s message reduces identity to a closed formula: one people, one state, one ruler. The simplicity
-        is intentional. Jeffrey Herf emphasizes that Nazi propaganda relied on reducing complex political questions
-        into emotionally charged binaries—unity versus chaos, loyalty versus betrayal (<em>The Jewish Enemy</em>).
-        The red and black palette reinforces urgency and strength, while the image of Hitler symbolizes the
-        embodiment of national destiny.
+        The message of the poster reduces national identity to an absolute formula: one people, one state, one
+        ruler. Jeffrey Herf notes that the Nazis relied heavily on simple emotional binaries—unity vs. chaos,
+        loyalty vs. betrayal—to shape public thinking (<em>The Jewish Enemy</em>). The poster’s imagery of Hitler
+        reaching toward the crowd represents him not only as a political figure but as the embodiment of Germany’s
+        supposed destiny.
       </p>
 
       <ul>
-        <li>Short, repetitive phrase—easy to memorize and recall</li>
-        <li>Color choices associated with power, sacrifice, and movement</li>
-        <li>Imagery fostering emotional identification with the “German community”</li>
-        <li>Mirrors themes from Hitler’s 1939 Reichstag speech promoting “historic unity” as fate</li>
+        <li>Short, repetitive phrasing made the slogan easy to memorize</li>
+        <li>Red and black color themes reinforced urgency and authority</li>
+        <li>Imagery created emotional identification with the “national community”</li>
+        <li>Echoed themes from Hitler’s speeches about historic German unity</li>
       </ul>
 
       <h3>Historical Importance</h3>
       <p>
-        As Claudia Koonz argues, the Nazis redefined morality by framing loyalty to the leader as civic virtue,
-        making dissent appear immoral (<em>The Nazi Conscience</em>). This poster is an early example of that
-        moral reorientation. Once “the people” were defined racially and politically, anyone who did not fit that
-        definition could be portrayed as a threat to unity. Posters like this helped justify the exclusion,
-        surveillance, and eventual persecution of those labeled outsiders.
+        Claudia Koonz argues that the regime redefined morality by presenting total loyalty to Hitler as a civic
+        good (<em>The Nazi Conscience</em>). Once “the people” were defined along racial and ideological lines,
+        anyone who did not fit that definition—Jews, political opponents, disabled individuals—could be portrayed
+        as a threat to unity. This poster laid the groundwork for policies of exclusion, surveillance, and
+        eventually mass violence.
       </p>
 
       <p>
-        In this way, the poster did more than promote unity—it prepared citizens to accept a dictatorship disguised
-        as collective destiny. It demonstrates how visual propaganda can translate ideological goals into an
-        emotionally compelling narrative that normalizes authoritarian power.
+        Ultimately, the poster is a clear example of how visual language can transform dictatorship into a
+        collective mission. By appealing to belonging and national destiny, it normalized authoritarian power and
+        prepared the German public to support increasingly radical policies.
       </p>
+
     </div>
   </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div id="lightbox">
-  <img src="einvolk.jpg" alt="Ein Volk, ein Reich, ein Führer poster enlarged">
+  <img src="" alt="Expanded poster image">
 </div>
 
 <!-- DARK MODE + LIGHTBOX SCRIPT -->
@@ -237,11 +262,24 @@
     toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   });
 
-  const img = document.getElementById("poster1-img");
   const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
 
-  img.onclick = () => lightbox.style.display = "flex";
-  lightbox.onclick = () => lightbox.style.display = "none";
+  const imgs = [
+    document.getElementById("poster1-img"),
+    document.getElementById("poster1-img2")
+  ];
+
+  imgs.forEach(img => {
+    img.onclick = () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = "flex";
+    };
+  });
+
+  lightbox.onclick = () => {
+    lightbox.style.display = "none";
+  };
 </script>
 
 </body>
