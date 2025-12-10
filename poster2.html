@@ -9,19 +9,21 @@
     :root {
       --bg-color: rgba(255,255,255,0.84);
       --text-color: #222;
-      --card-bg: rgba(255,255,255,0.90);
+      --card-bg: rgba(255,255,255,0.95);
       --nav-bg: rgba(0,0,0,0.65);
       --nav-link-bg: rgba(80,80,80,0.7);
       --nav-link-hover: rgba(120,120,120,0.8);
+      --card-shadow: 0 8px 20px rgba(0,0,0,0.18);
     }
 
     [data-theme="dark"] {
       --bg-color: rgba(20,20,30,0.80);
       --text-color: #f1f1f1;
-      --card-bg: rgba(30,30,40,0.85);
+      --card-bg: rgba(30,30,40,0.90);
       --nav-bg: rgba(0,0,0,0.85);
       --nav-link-bg: rgba(60,60,60,0.8);
       --nav-link-hover: rgba(90,90,90,0.9);
+      --card-shadow: 0 8px 20px rgba(0,0,0,0.45);
     }
 
     body {
@@ -60,49 +62,68 @@
       transition: background .25s ease, transform .2s ease;
     }
 
-    nav a:hover, nav button:hover { 
-      background: var(--nav-link-hover); 
-      transform: translateY(-1px); 
+    nav a:hover, nav button:hover {
+      background: var(--nav-link-hover);
+      transform: translateY(-1px);
     }
 
     .container {
       max-width: 1250px;
       margin: 50px auto;
-      background: var(--card-bg);
-      padding: 50px;
-      border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
-      backdrop-filter: blur(4px);
+      background: none;
+      padding: 20px;
     }
 
     h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      border-bottom: 2px solid #555;
-      padding-bottom: 12px;
+      font-size: 2.2rem;
+      margin: 25px 0 15px;
     }
 
-    .flex {
-      display: flex;
-      gap: 35px;
-      align-items: flex-start;
-    }
-
-    .left { flex: 0 0 55%; }
-    .right { flex: 0 0 45%; }
-
-    .poster-img {
+    .poster-img-large {
       width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.35);
       cursor: pointer;
-      transition: transform .25s ease;
+      transition: transform .25s;
     }
 
-    .poster-img:hover { transform: scale(1.03); }
+    .poster-img-large:hover {
+      transform: scale(1.02);
+    }
 
-    #lightbox2 {
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    /* Card Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+      border-bottom: 1px solid #777;
+      padding-bottom: 6px;
+    }
+
+    #lightbox {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.9);
@@ -112,26 +133,16 @@
       z-index: 999;
     }
 
-    #lightbox2 img {
+    #lightbox img {
       max-width: 90%;
       max-height: 90%;
-      border-radius: 14px;
+      border-radius: 10px;
     }
-
-    h3 {
-      margin-top: 25px;
-      border-bottom: 1px solid #888;
-      padding-bottom: 6px;
-      font-size: 1.3rem;
-    }
-
-    ul { margin-left: 20px; }
   </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
   <a href="home.html">Home</a>
   <a href="index.html">Introduction</a>
@@ -144,90 +155,65 @@
 </nav>
 
 <div class="container">
+
+  <img src="trunkenen.jpg" class="poster-img-large" id="poster-main" alt="Das furchtbare Erbe einer Trunkenen">
+
   <h2>“Das furchtbare Erbe einer Trunkenen”</h2>
+  <div class="subtitle">Nazi eugenics propaganda, c. 1936</div>
 
-  <div class="flex">
+  <div class="grid">
 
-    <!-- TEXT LEFT -->
-    <div class="left">
-
-      <h3>Background and Purpose</h3>
+    <div class="card">
+      <h3>Background & Purpose</h3>
       <p>
-        Created around 1936, this eugenics poster titled 
-        <strong>“The Horrible Legacy of a Female Drunkard”</strong>
-        visualizes an ideological claim central to Nazi racial hygiene: that social problems such as alcoholism
-        would inevitably produce generations of “degenerate” offspring. Historian Claudia Koonz explains that
-        such materials formed part of a larger effort to transform moral judgments into biological truths,
-        presenting social failure as hereditary destiny (<em>The Nazi Conscience</em>). In this framework,
-        addiction became not a medical or socioeconomic issue but a threat to the racial body of the nation.
+        Created in 1936, this eugenics poster framed alcoholism as a hereditary danger to Germany. Claudia Koonz shows
+        that the regime regularly transformed moral judgments into biological warnings, claiming personal behaviors
+        threatened the “racial health” of the nation. By portraying decline across several generations, the poster
+        reframes social issues as genetic defects rather than medical or economic problems.
       </p>
-
-      <h3>Where the Poster Appeared</h3>
-      <ul>
-        <li>Racial hygiene exhibitions and health education campaigns</li>
-        <li>Hospitals, clinics, and public health offices</li>
-        <li>School biology courses promoting eugenic classifications</li>
-        <li>Pamphlets circulated by the Office of Racial Policy</li>
-      </ul>
-
-      <p>
-        According to the United States Holocaust Memorial Museum, these displays were intentionally placed where
-        citizens encountered medical authority, making the message appear scientifically valid and socially responsible.
-      </p>
-
-      <h3>Symbolic and Emotional Strategies</h3>
-      <p>
-        The poster’s generational diagram suggests that one woman’s alcoholism can doom her children and grandchildren.
-        Jeffrey Herf notes that Nazi propaganda regularly used pseudo-scientific diagrams to portray complex human
-        conditions as simple genetic chains, allowing the regime to justify coercive policies with an illusion of
-        objectivity (<em>The Jewish Enemy</em>).
-      </p>
-
-      <ul>
-        <li>Fear-based appeals linked personal behavior to national decline</li>
-        <li>Children were depicted as inevitable victims of hereditary “taint”</li>
-        <li>Disability, poverty, and criminality were framed as biologically fixed traits</li>
-        <li>The viewer was encouraged to believe that only state intervention—especially sterilization—could break the pattern</li>
-      </ul>
-
-      <h3>Historical Importance</h3>
-      <p>
-        Doris Bergen stresses that the 1933 Law for the Prevention of Hereditarily Diseased Offspring required public
-        consent to function, and posters like this generated the emotional justification for its enforcement
-        (<em>War and Genocide</em>). By framing certain families as perpetual burdens, the poster made forced sterilization
-        appear protective rather than violent.
-      </p>
-
-      <p>
-        This messaging paved the way for the escalation of policy. Richard Evans argues that the logic of eugenics
-        naturally merged into the so-called “euthanasia” killings of disabled Germans, since the public had already
-        been taught to view them as biologically dangerous (<em>The Third Reich in Power</em>). David Welch further notes
-        that such posters functioned as moral instruction, shaping not only what citizens believed but what they felt
-        obligated to support.
-      </p>
-
-      <p>
-        In this sense, <em>Das furchtbare Erbe einer Trunkenen</em> is more than a warning—it is a visual argument for
-        state power over reproduction. By presenting hereditary fear as scientific fact, the poster prepared ordinary
-        Germans to accept increasingly radical interventions into private life and human rights.
-      </p>
-
     </div>
 
-    <!-- IMAGE RIGHT -->
-    <div class="right">
-      <img src="trunkenen.jpg" class="poster-img" id="poster2-img" alt="Das furchtbare Erbe einer Trunkenen poster">
+    <div class="card">
+      <h3>Where It Was Displayed</h3>
+      <ul>
+        <li>Health exhibitions and racial hygiene lectures</li>
+        <li>Public clinics and hospitals</li>
+        <li>School biology lessons</li>
+        <li>Pamphlets from the Office of Racial Policy</li>
+      </ul>
+      <p>
+        The USHMM notes these posters were placed in settings where people trusted medical authority, making propaganda
+        appear scientific and credible.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Symbolism & Emotional Strategy</h3>
+      <p>
+        Nazi propagandists used a generational family tree to imply an unavoidable decline. Jeffrey Herf explains that
+        diagrams like this gave propaganda an aura of scientific certainty, turning fear into support for state
+        intervention. By “predicting” suffering in future children, the poster made sterilization seem protective rather
+        than violent.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Historical Importance</h3>
+      <p>
+        Doris Bergen emphasizes that public acceptance of eugenics was essential for enforcing the 1933 Sterilization
+        Law. Posters like this normalized the idea that certain families were burdens on society. Richard Evans notes
+        that this rhetoric directly shaped the later T4 killing program. The poster is therefore an early step in
+        legitimizing biological inequality and state control over reproduction.
+      </p>
     </div>
 
   </div>
 </div>
 
-<!-- LIGHTBOX -->
-<div id="lightbox2">
-  <img src="trunkenen.jpg" alt="Enlarged poster: Das furchtbare Erbe einer Trunkenen">
+<div id="lightbox">
+  <img src="" alt="Expanded image">
 </div>
 
-<!-- DARK MODE + LIGHTBOX SCRIPT -->
 <script>
   const toggle = document.getElementById("theme-toggle");
   const html = document.documentElement;
@@ -245,11 +231,16 @@
     toggle.textContent = mode === "dark" ? "☀️ Light mode" : "🌙 Dark mode";
   });
 
-  const img2 = document.getElementById("poster2-img");
-  const lightbox2 = document.getElementById("lightbox2");
+  const poster = document.getElementById("poster-main");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
 
-  img2.onclick = () => lightbox2.style.display = "flex";
-  lightbox2.onclick = () => lightbox2.style.display = "none";
+  poster.onclick = () => {
+    lightboxImg.src = poster.src;
+    lightbox.style.display = "flex";
+  };
+
+  lightbox.onclick = () => lightbox.style.display = "none";
 </script>
 
 </body>
